@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
 public class Usuario {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
 	@NotBlank(message = "O atributo nome é obrigatório!")
