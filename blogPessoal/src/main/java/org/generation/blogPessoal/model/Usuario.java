@@ -45,6 +45,9 @@ public class Usuario {
 
 	@Size(min = 5, max = 200, message = "O atributo foto recebe link onde uma imagem em um banco de dados existe.")
 	private String foto;
+	
+	@Size(min = 5, max = 100, message = "O atributo tipo tem de ter no mínimo 05" + " e no máximo 100 caracteres.")
+	private String tipo;
 
 	@Column(name = "dt_nascimento")
 	@JsonFormat(pattern = "yyyy-MM-dd")
@@ -54,11 +57,13 @@ public class Usuario {
 	@JsonIgnoreProperties({ "criador" })
 	private List<Postagem> minhasPostagens = new ArrayList<>();
 
-	public Usuario(long id,String nome,String usuario,String senha,LocalDate dataNascimento) {
+	public Usuario(long id,String nome,String usuario,String senha, String foto, String tipo,LocalDate dataNascimento) {
 		this.id = id;
 		this.nome = nome;
 		this.usuario = usuario;
 		this.senha = senha;
+		this.foto = foto;
+		this.tipo = tipo;
 		this.dataNascimento = dataNascimento;
 	}
 
@@ -103,6 +108,14 @@ public class Usuario {
 
 	public void setFoto(String foto) {
 		this.foto = foto;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 	public LocalDate getDataNascimento() {
